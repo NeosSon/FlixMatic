@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.822);
+
+}
+h1 {
+    color: white;
+}
+
+
+.container {
+    display: flex;
+    margin-top: 1rem;
+    
+    justify-content: center;
+
+}
+#search-button {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    background-color: rgba(100, 148, 237, 0.589);
+    cursor: pointer;
+}
+#search-input {
+    padding: 0.5rem;
+}
+
+#search-input-label {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: flex-start;
+    
+}
+.card {
+    width: 25%;
+    text-align: center;
+}
+.cards p {
+    order: 1;
+}
+.rating {
+    order: 1;
+    font-weight: bold;
+}
+.release-date{
+    font-weight: bold;
+
+}
+.title{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
