@@ -130,20 +130,6 @@ async function multipleCards() {
         cardsContainer.appendChild(card);
     }
 }
-<<<<<<< HEAD
-
-async function displayTrending() {
-    const trendingEndpoint = "/trending/movie/day"
-    const requestParams = `?api_key=${tmdbKey}`
-    const urlToFetch = tmdbBaseUrl + trendingEndpoint + requestParams
-    console.log(urlToFetch)
-    try {
-        const response = await fetch(urlToFetch)
-        const jsonResponse = await response.json()
-        const trendingContainer = document.createElement("div")
-        for (const cardData of jsonResponse.results) {
-            const card = document.createElement("div");
-=======
 //function to show trending movies as default
 async function trendingMovies() {
     const getTrendingMovies = `/trending/movie/week`
@@ -167,28 +153,14 @@ async function displayTrendingMovies() {
     
     for (const cardData of jsonResponse) {
         const card = document.createElement("div");
->>>>>>> 4e12e4da7fa49f388cccae40980464ddfa353599
         card.className = "card"
         card.classList.add("card");
         await addPoster(cardData, card);
         await addSummary(cardData, card);
 
-<<<<<<< HEAD
-        trendingContainer.appendChild(card);
-        }
-        console.log(jsonResponse.results)
-    }catch(error) {
-        console.log(error)
-    }
-}
-
-displayTrending()
-
-=======
         cardsContainer.appendChild(card);
     }
 }
 displayTrendingMovies()
->>>>>>> 4e12e4da7fa49f388cccae40980464ddfa353599
 
 
