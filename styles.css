@@ -13,7 +13,10 @@ header {
 h1 {
     color: white;
 }
-
+a {
+    color: white;
+    text-decoration: none
+}
 
 .container {
     display: flex;
@@ -39,15 +42,58 @@ h1 {
     font-size: 1.25rem;
     margin-right: 0.5rem;
 }
-.cards {
+.cards, .default-cards {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    align-items: flex-start;
+    align-items:flex-start;
     
 }
+.poster {
+    margin: 0 auto;
+}
+@media only screen and (max-width: 800px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    
+    }
+    .card {
+        width: 100%;
+        text-align: center;
+        
+}
+.default-cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.posters {
+    width: 100%;
+    height: auto;
+}
+.poster {
+    margin: 0 auto;
+}
+.overview {
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+}
+}
+
 .card {
+<<<<<<< HEAD
     width: 23%;
+=======
+    width: 33%;
+>>>>>>> 4e12e4da7fa49f388cccae40980464ddfa353599
     text-align: center;
 }
 .cards p {
@@ -65,4 +111,9 @@ h1 {
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
+}
+#trending-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 1rem;
 }
