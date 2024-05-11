@@ -26,7 +26,17 @@ searchButton.addEventListener("click", () => {
 
 });
 
-
+document.body.addEventListener("keydown", function(event) {
+    // Check if the key pressed is Enter (key code 13)
+    if (event.key === "Enter") {
+        // Perform the desired action here
+        cardsContainer.innerHTML = "";
+        cards.innerHTML = "";
+        searchValue = searchInput.value; // Get the value of the input
+        multipleCards()
+        searchInput.value = ""; // Reset the input field
+    }
+});
 
 
 const getData = async (searchValue) => {
