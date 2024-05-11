@@ -118,5 +118,31 @@ async function multipleCards() {
     }
 }
 
+async function displayTrending() {
+    const trendingEndpoint = "/trending/movie/day"
+    const requestParams = `?api_key=${tmdbKey}`
+    const urlToFetch = tmdbBaseUrl + trendingEndpoint + requestParams
+    console.log(urlToFetch)
+    try {
+        const response = await fetch(urlToFetch)
+        const jsonResponse = await response.json()
+        const trendingContainer = document.createElement("div")
+        for (const cardData of jsonResponse.results) {
+            const card = document.createElement("div");
+        card.className = "card"
+        card.classList.add("card");
+        await addPoster(cardData, card);
+        await addSummary(cardData, card);
+
+        trendingContainer.appendChild(card);
+        }
+        console.log(jsonResponse.results)
+    }catch(error) {
+        console.log(error)
+    }
+}
+
+displayTrending()
+
 
 
