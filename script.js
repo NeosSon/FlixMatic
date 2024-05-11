@@ -157,6 +157,7 @@ async function displayTrendingMovies() {
     const jsonResponse = await trendingMovies();
     cardsContainer.innerHTML = "";
     cards.innerHTML = "";
+    document.getElementById("trending-title").innerText = 'Trending Movies'
     for (const cardData of jsonResponse) {
         const card = document.createElement("div");
         card.className = "card"
