@@ -125,7 +125,7 @@ const addSummary = async (cardData, container) => {
 async function multipleCards() {
     const jsonResponse = await getData(searchValue);
     const cardsContainer = document.querySelector(".cards");
-    document.querySelector("#trending-title").innerText = searchValue;
+    document.querySelector("#trending-title").innerText = searchValue.toUpperCase();
     for (const cardData of jsonResponse) {
         const card = document.createElement("div");
         card.className = "card"

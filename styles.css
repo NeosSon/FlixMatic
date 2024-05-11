@@ -23,7 +23,7 @@ a {
     margin-top: 1rem;
     align-items: center;
     justify-content: center;
-
+    flex-wrap: nowrap;
 }
 #search-button {
     margin-left: 0.5rem;
@@ -96,6 +96,10 @@ a {
     text-align: center;
     justify-self: center;
     align-self: center;
+}
+
+#search-input-label {
+    display: none;
 }
 }
 
