@@ -5,7 +5,9 @@ const imageBaseUrl = "https://image.tmdb.org/t/p/original/"
 let searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
 let searchValue = "" 
-
+let searchInputLabel = document.getElementById("search-input-label")
+let searchForm = document.getElementById("search-form")
+let searchContainer = document.querySelector(".container")
 let cards = document.querySelector(".cards");
 let image = document.createElement("img");
 let overview = document.createElement("p")
@@ -26,9 +28,13 @@ searchButton.addEventListener("click", () => {
 
 });
 
-document.body.addEventListener("keydown", function(event) {
+ function handleKeyPress(event) {
     // Check if the key pressed is Enter (key code 13)
+    console.log(searchInput.value)
     if (event.key === "Enter") {
+        //saves input value before pressing enter
+        event.preventDefault(); // Prevents the default action of the Enter key
+        searchInput.blur(); // Blurs the input element
         // Perform the desired action here
         cardsContainer.innerHTML = "";
         cards.innerHTML = "";
@@ -36,7 +42,7 @@ document.body.addEventListener("keydown", function(event) {
         multipleCards()
         searchInput.value = ""; // Reset the input field
     }
-});
+};
 
 
 const getData = async (searchValue) => {
@@ -140,7 +146,6 @@ async function trendingMovies() {
         if (response.ok) {
             const jsonResponse = await response.json()
             const results = jsonResponse.results
-            console.log(results)
             return results
         }
     }catch(error){
@@ -150,7 +155,8 @@ async function trendingMovies() {
 //function to display trending movies
 async function displayTrendingMovies() {
     const jsonResponse = await trendingMovies();
-    
+    cardsContainer.innerHTML = "";
+    cards.innerHTML = "";
     for (const cardData of jsonResponse) {
         const card = document.createElement("div");
         card.className = "card"
@@ -163,4 +169,4 @@ async function displayTrendingMovies() {
 }
 displayTrendingMovies()
 
-
+document.getElementById("header-title").addEventListener("click", displayTrendingMovies)

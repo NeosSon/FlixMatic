@@ -6,14 +6,14 @@
     
     <title>FlixMatic</title>
 </head>
-<body>
+<body onkeypress="handleKeyPress(event)">
     <header>
-        <h1><a href="#">FlixMatic</a></h1>
+        <h1><a href="#" id="header-title">FlixMatic</a></h1>
     </header>
     <h2 id="trending-title">Trending</h2>
     <div class="container">
         <form id="search-form">
-            <label for="search-input" id="search-input-label">Search Movie</label>
+            <label for="search-input" id="search-input-label" onkeypress="handleKeyPress(event)">Search Movie</label>
             <input type="text" id="search-input" name="search-button">
         </form>
         <button id="search-button">Search</button>
