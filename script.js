@@ -13,11 +13,14 @@ let title = document.createElement("h2")
 let release_date = document.createElement("p")
 let rating = document.createElement("h3")
 
+const cardsContainer = document.createElement("div");
+cardsContainer.className = "default-cards";
+document.body.appendChild(cardsContainer);
+    
 searchButton.addEventListener("click", () => {
+    cardsContainer.innerHTML = "";
+    cards.innerHTML = "";
     searchValue = searchInput.value; // Get the value of the input
-    getData(searchValue); // Assuming print() is a function to perform search
-    multipleCards();
-    console.log(searchValue);
     multipleCards()
     searchInput.value = ""; // Reset the input field
 
@@ -106,7 +109,7 @@ const addSummary = async (cardData, container) => {
 async function multipleCards() {
     const jsonResponse = await getData(searchValue);
     const cardsContainer = document.querySelector(".cards");
-
+    document.querySelector("#trending-title").innerText = searchValue;
     for (const cardData of jsonResponse) {
         const card = document.createElement("div");
         card.className = "card"
@@ -117,6 +120,37 @@ async function multipleCards() {
         cardsContainer.appendChild(card);
     }
 }
+//function to show trending movies as default
+async function trendingMovies() {
+    const getTrendingMovies = `/trending/movie/week`
+    const requestParams = `?api_key=${tmdbKey}`
+    const urlToFetch = tmdbBaseUrl + getTrendingMovies + requestParams
+    try{
+        const response = await fetch(urlToFetch, options)
+        if (response.ok) {
+            const jsonResponse = await response.json()
+            const results = jsonResponse.results
+            console.log(results)
+            return results
+        }
+    }catch(error){
+        console.log(error)
+    }
+}
+//function to display trending movies
+async function displayTrendingMovies() {
+    const jsonResponse = await trendingMovies();
+    
+    for (const cardData of jsonResponse) {
+        const card = document.createElement("div");
+        card.className = "card"
+        card.classList.add("card");
+        await addPoster(cardData, card);
+        await addSummary(cardData, card);
 
+        cardsContainer.appendChild(card);
+    }
+}
+displayTrendingMovies()
 
 
