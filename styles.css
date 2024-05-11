@@ -21,7 +21,7 @@ a {
 .container {
     display: flex;
     margin-top: 1rem;
-    
+    align-items: center;
     justify-content: center;
 
 }
@@ -30,17 +30,28 @@ a {
     font-size: 1rem;
     font-weight: bold;
     padding: 0.5rem;
-    background-color: rgba(100, 148, 237, 0.589);
+    background-color: rgba(100, 216, 237, 0.589);
     cursor: pointer;
+    position: relative;
+    right: 5rem;
+    transition: font-size 0.3s ease;
+}
+#search-button:hover {
+    background-color: aliceblue;
+    font-size: 1.15rem;
 }
 #search-input {
     padding: 0.5rem;
+    position: relative;
+    right: 5rem;
 }
 
 #search-input-label {
     font-weight: bold;
     font-size: 1.25rem;
     margin-right: 0.5rem;
+    position: relative;
+    right: 5rem;
 }
 .cards, .default-cards {
     display: flex;
@@ -112,4 +123,7 @@ a {
     font-size: 2rem;
     font-weight: bold;
     margin: 1rem 1rem;
+    position: relative;
+    right: 30rem;
+    color: rgba(30, 124, 141, 0.856)
 }
